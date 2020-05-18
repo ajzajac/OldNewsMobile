@@ -1,0 +1,17 @@
+{
+  "name": "OldNewsMobile",
+  "displayName": "OldNewsMobile",
+  "expo": {
+    "name": "OldNewsMobile",
+    "slug": "OldNewsMobile",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
