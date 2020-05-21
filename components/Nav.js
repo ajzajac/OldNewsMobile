@@ -1,27 +1,20 @@
-import React, { Component } from 'react'
-import { Text, View, StyleSheet, Button } from 'react-native'
-import { TouchableOpacity } from 'react-native'
+import React from 'react'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
-export default class NavBar extends Component {
-
-
-
-    render() {
-        return (
-            <View style={styles.navBarTop}>
+const Nav = ({ navigation }) => {
+    return (
+        <View style={styles.navBarTop}>
                 <Text style={styles.title}>Old News</Text>
                 <View style={styles.navBar}>
-                     <TouchableOpacity onPress={() => this.props.navigation.navigate('Politics', { name: 'Politics' })}><Text style={styles.navLinks}>Politics   </Text></TouchableOpacity>
+                     <TouchableOpacity onPress={() => navigation.navigate('Politics', { name: 'Politics' })}><Text style={styles.navLinks}>Politics   </Text></TouchableOpacity>
                      <TouchableOpacity onPress={() => this.props.changeNewsTopic}><Text style={styles.navLinks}>Sports   </Text></TouchableOpacity>
                      <TouchableOpacity onPress={() => this.props.changeNewsTopic}><Text style={styles.navLinks}>Health   </Text></TouchableOpacity>
                      <TouchableOpacity onPress={() => this.props.changeNewsTopic}><Text style={styles.navLinks}>Finance   </Text></TouchableOpacity>
                      <TouchableOpacity onPress={() => this.props.changeNewsTopic}><Text style={styles.navLinks}>Entertainment</Text></TouchableOpacity>
                 </View>
             </View>
-        )
-    }
+    )
 }
-
 const styles = StyleSheet.create({
     navBarTop: {
         justifyContent: 'center'
@@ -41,3 +34,5 @@ const styles = StyleSheet.create({
         paddingVertical: 6,
     },
 })
+
+export default Nav

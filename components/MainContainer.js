@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet } from 'react-native'
-import Page from './Page'
-import NavBar from './NavBar'
-
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
+import Article from './Article'
+import { ScrollView } from 'react-native-gesture-handler';
 
 let rak = '8438c1aaccmsh00107ef5defee46p19f9f8jsnbaaaa08bc316'
 
@@ -10,13 +9,13 @@ let expData = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do e
 
 export default class MainContainer extends Component {
 
-    state = {
+        state = {
             news: [expData, expData, expData, expData],
-            newsTopic: "Sports News"
-    }
-
+            currentPage : [expData, expData, expData, expData],
+        }
+    
     // componentDidMount(){
-    //     fetch("https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=10&q=Taylor%20Swift&safeSearch=false", {
+    //     fetch(`https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=10&q=${this.state.currentPage}&safeSearch=false`, {
     //         "method": "GET",
     //         "headers": {
     //             "x-rapidapi-host": "contextualwebsearch-websearch-v1.p.rapidapi.com",
@@ -35,18 +34,29 @@ export default class MainContainer extends Component {
     //     });
     // }
 
-    changeNewsTopic = (e) => {
-        console.log(e)
-        this.setState({
-            newsTopic: e.target.value
-        })
+    renderMainArticles = () => {
+        if(this.state.currentPage !== null){
+            return (this.state.currentPage).map(article => 
+                <Article style={styles.container} key={article.id} article={article}/>
+        )}
     }
 
     render() {
         return (
             <View>
-                <NavBar/>
-                <Page news={this.state.news}/>
+                <View style={styles.navBarTop}>
+                    <Text style={styles.title}>Old News</Text>
+                        <View style={styles.navBar}>
+                            <TouchableOpacity onPress={() => this.setState({ currentPage: [expData, expData, expData]})}><Text style={styles.navLinks}>Politics   </Text></TouchableOpacity>
+                            <TouchableOpacity onPress={() => this.setState({ currentPage: [expData, expData, expData]})}><Text style={styles.navLinks}>Sports   </Text></TouchableOpacity>
+                            <TouchableOpacity onPress={() => this.setState({ currentPage: [expData, expData, expData]})}><Text style={styles.navLinks}>Health   </Text></TouchableOpacity>
+                            <TouchableOpacity onPress={() => this.setState({ currentPage: [expData, expData, expData]})}><Text style={styles.navLinks}>Finance   </Text></TouchableOpacity>
+                            <TouchableOpacity onPress={() => this.setState({ currentPage: [expData, expData, expData]})}><Text style={styles.navLinks}>Entertainment</Text></TouchableOpacity>
+                        </View>
+                </View>
+                    <ScrollView contentContainerStyle={{flexGrow: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor: 'papayawhip',}} >
+                        {this.renderMainArticles ? this.renderMainArticles() : this.renderMainArticles}
+                    </ScrollView>
             </View>
         )
     }
@@ -59,5 +69,25 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: '#F5FCFF',
-    }
+    },
+    navBarTop: {
+        justifyContent: 'center',
+        backgroundColor: 'papayawhip',
+        paddingBottom: 4,
+    },
+    title: {
+        fontSize: 45,
+        textAlign: 'center',
+    },
+    navBar: {
+        justifyContent: 'center',
+        borderBottomWidth: 1,
+        borderTopWidth: 1,
+        paddingBottom: 1,
+        flexDirection: 'row',
+    },
+    navLinks: {
+        fontWeight: 'bold',
+        paddingVertical: 6,
+    },
   })
