@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View, Image, StyleSheet, Linking } from 'react-native'
 
-
 export default class Article extends Component {
 
     renderPhoto = () => {
@@ -12,15 +11,20 @@ export default class Article extends Component {
         }
     }
 
+    formatString = (str) => {
+       let cleanString = str.replace(/<(?:.|\n)*?>/gm, '')
+        return cleanString
+    }
+        
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.title}>{this.props.article.title}</Text>
+                <Text style={styles.title}>{this.formatString(this.props.article.title)}</Text>
                     <Image 
                         source={{uri: `${this.renderPhoto()}` }}
                         style={styles.image} />
-                    <Text style={styles.text}>Source: {this.props.article.provider.name}</Text>
-                <Text style={styles.text}>{this.props.article.description}</Text>
+                    <Text style={styles.text}>Source: {this.formatString(this.props.article.provider.name)}</Text>
+                <Text style={styles.text}>{this.formatString(this.props.article.description)}</Text>
                     <Text style={{color: 'blue'}}
                         onPress={() => Linking.openURL(`${this.props.article.url}`)}>
                            Link to full article here

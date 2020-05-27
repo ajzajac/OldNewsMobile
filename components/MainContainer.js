@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 import Article from './Article'
 import { ScrollView } from 'react-native-gesture-handler';
+import Footer from './Footer'
 
 let expData = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
 
@@ -24,7 +25,7 @@ export default class MainContainer extends Component {
         })
         .then(response => response.json())
         .then(response => {
-            console.log(response.value)
+            
             this.setState({
                 currentPage: response.value,
             })
@@ -43,7 +44,7 @@ export default class MainContainer extends Component {
             })
             .then(response => response.json())
             .then(response => {
-                console.log(response.value)
+                
                 this.setState({
                     currentPage: response.value,
                 })
@@ -58,7 +59,7 @@ export default class MainContainer extends Component {
             })
             .then(response => response.json())
             .then(response => {
-                console.log(response.value)
+               
                 this.setState({
                     currentPage: response.value,
                 })
@@ -73,7 +74,7 @@ export default class MainContainer extends Component {
             })
             .then(response => response.json())
             .then(response => {
-                console.log(response.value)
+               
                 this.setState({
                     currentPage: response.value,
                 })
@@ -88,7 +89,7 @@ export default class MainContainer extends Component {
             })
             .then(response => response.json())
             .then(response => {
-                console.log(response.value)
+              
                 this.setState({
                     currentPage: response.value,
                 })
@@ -103,7 +104,7 @@ export default class MainContainer extends Component {
             })
             .then(response => response.json())
             .then(response => {
-                console.log(response.value)
+               
                 this.setState({
                     currentPage: response.value,
                 })
@@ -118,7 +119,7 @@ export default class MainContainer extends Component {
             })
             .then(response => response.json())
             .then(response => {
-                console.log(response.value)
+               
                 this.setState({
                     currentPage: response.value,
                 })
@@ -126,9 +127,9 @@ export default class MainContainer extends Component {
             }
         }
 
-    componentDidMount(){
-        this.fetchNews()
-    }
+    // componentDidMount(){
+    //     this.fetchNews()
+    // }
 
     renderMainArticles = () => {
         if(this.state.currentPage !== null){
@@ -152,7 +153,9 @@ export default class MainContainer extends Component {
                 </View>
                     <ScrollView contentContainerStyle={{flexGrow: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor: 'papayawhip',}} >
                         {this.renderMainArticles ? this.renderMainArticles() : this.renderMainArticles}
+                    <Footer></Footer>
                     </ScrollView>
+                   
             </View>
         )
     }
