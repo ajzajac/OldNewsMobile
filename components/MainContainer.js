@@ -32,7 +32,6 @@ export default class MainContainer extends Component {
         })
         }
 
-
         handlePress = (id) => {
             if(id === 1){
                 fetch(`https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=10&q=us%20politics%20news&safeSearch=true`, {
@@ -176,6 +175,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 45,
+        fontWeight: 'bold',
         textAlign: 'center',
         fontFamily: 'Times New Roman',
     },
