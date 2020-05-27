@@ -25,7 +25,7 @@ export default class Article extends Component {
                         style={styles.image} />
                     <Text style={styles.text}>Source: {this.formatString(this.props.article.provider.name)}</Text>
                 <Text style={styles.text}>{this.formatString(this.props.article.description)}</Text>
-                    <Text style={{color: 'blue'}}
+                    <Text style={{color: 'blue', fontFamily: 'Times New Roman',}}
                         onPress={() => Linking.openURL(`${this.props.article.url}`)}>
                            Link to full article here
                     </Text>
@@ -49,11 +49,13 @@ const styles = StyleSheet.create({
     text: {
         paddingBottom: 7,
         paddingVertical: 7,
-        fontSize: 13
+        fontSize: 15,
+        fontFamily: 'Times New Roman',
     },
     title: {
-        fontSize: 20,
+        fontSize: 22,
         fontWeight: 'bold',
         paddingBottom: 8,
+        fontFamily: 'Times New Roman',
     }
   })

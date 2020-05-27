@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from 'react-native'
 const Footer = () => {
     return (
         <View style={styles.footer}>
-            <Text>Designed and Created by Andrew Zajac</Text>
+            <Text style={styles.footer}>Designed and Created by Andrew Zajac</Text>
         </View>
     )
 }
@@ -16,6 +16,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingBottom: 7,
         paddingVertical: 7,
+        fontSize: 14,
+        fontFamily: 'Times New Roman',
     }
 })
 

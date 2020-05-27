@@ -151,7 +151,7 @@ export default class MainContainer extends Component {
                             <TouchableOpacity onPress={() => this.handlePress(5)}><Text style={styles.navLinks}>Entertainment</Text></TouchableOpacity>
                         </View>
                 </View>
-                    <ScrollView contentContainerStyle={{flexGrow: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor: 'papayawhip',}} >
+                    <ScrollView contentContainerStyle={{flexGrow: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor: 'papayawhip', fontFamily: 'Times New Roman',}} >
                         {this.renderMainArticles ? this.renderMainArticles() : this.renderMainArticles}
                     <Footer></Footer>
                     </ScrollView>
@@ -177,6 +177,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 45,
         textAlign: 'center',
+        fontFamily: 'Times New Roman',
     },
     navBar: {
         justifyContent: 'center',
@@ -184,9 +185,12 @@ const styles = StyleSheet.create({
         borderTopWidth: 1,
         paddingBottom: 1,
         flexDirection: 'row',
+        
     },
     navLinks: {
         fontWeight: 'bold',
         paddingVertical: 6,
+        fontFamily: 'Times New Roman',
+        fontSize: 16,
     },
   })
